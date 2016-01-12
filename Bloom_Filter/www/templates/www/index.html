@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bloom Filter</title>
+</head>
+<body>
+
+<h1>Filtre de Bloom </h1>
+
+<form name="search"  action="{% url 'search' %}" method="post">
+	{% csrf_token %}
+    <input name ="doc_type" type="text" placeholder="Type de document" value="" required >
+    <input name ="country" type="text" placeholder="Pays" value="" required >
+    <input name ="doc_id" type="text" placeholder="Doc id" value="" required >
+    <input type="submit" class="btn" value="search">
+</form>
+
+<h2>{{resultat}}</h2>
+
+</body>
+</html>
