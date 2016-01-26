@@ -9,7 +9,7 @@ import random
 import string
 
 def read_country_list():
-	with open('/Users/yukaiwang/Documents/INSA/5IF/PDC03/CountryCode.csv', 'rU') as f:
+	with open('CountryCode.csv', 'rU') as f:
 		reader = csv.reader(f)
 		country_list = []
 		for row in reader:
@@ -17,7 +17,7 @@ def read_country_list():
 	return country_list
 
 def read_type_list():
-	with open('/Users/yukaiwang/Documents/INSA/5IF/PDC03/Type.csv', 'rU') as f:
+	with open('Type.csv', 'rU') as f:
 		reader = csv.reader(f)
 		type_list = []
 		for row in reader:
