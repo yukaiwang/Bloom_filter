@@ -1,0 +1,11 @@
+10000 requetes passe par le filtre de bloom, donne validite du document
+normalement exist() retourne 0, compter le nombre de 1 recu, calculer le taux de faux-positifs reel
+Calculer le temps d'execution pour ces 10000 requetes
+
+les requetes passe directement dans la base de donnees, calculer le temps d'execution
+
+les requetes passe par filtre de bloom, si exist() retourne 1, les requetes passe encore dans la base de donnees.
+
+Comparer les temps d'execution et la precision pour ces 3 modes
+
+changer le taux faux-positifs theorique, reconstruire le filtre de bloom, refaire les tests, comparer
