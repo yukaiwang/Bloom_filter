@@ -5,6 +5,6 @@ from django.core.urlresolvers import reverse
 
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+	url(r'^$', views.initialize_filter, name='initialize_filter'),
 	url(r'^search$', views.search, name='search'),
 ]

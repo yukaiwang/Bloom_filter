@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('fonts/FiraSans-Light.eot');
+    src: local('Fira Sans Light'),
+         url('fonts/FiraSans-Light.eot') format('embedded-opentype'),
+         url('fonts/FiraSans-Light.woff') format('woff'),
+         url('fonts/FiraSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('fonts/FiraSans-Regular.eot');
+    src: local('Fira Sans Regular'),
+         url('fonts/FiraSans-Regular.eot') format('embedded-opentype'),
+         url('fonts/FiraSans-Regular.woff') format('woff'),
+         url('fonts/FiraSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('fonts/FiraSans-Bold.eot');
+    src: local('Fira Sans Bold'),
+         url('fonts/FiraSans-Bold.eot') format('embedded-opentype'),
+         url('fonts/FiraSans-Bold.woff') format('woff'),
+         url('fonts/FiraSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/***** Typography *****/
+body, p, a, th, td, li, dl, .form-control { font: normal normal 300 18px/2em 'Fira Sans';}
+b, strong, dt { font-weight: 400;}
+h1, h2, h3, h4, h5, h6 { line-height: 2em;}
+body {
+    background: #455a64 url(jumbo_background.jpg);
+    background-size: cover;
+}
+h1 {
+    margin-top: 20vh;
+    font: normal normal 400 70px/80px 'Fira Sans', sans-serif;
+    color: white;
+    text-align: center
+}
+form {
+    margin: 30px auto;
+    width: 55%;
+}
+input {
+    margin: 20px 10px;
+}
+input.short-input {
+    width: 100px;
+}
+input.long-input {
+    width: 300px;
+}
+input[type="submit"] {
+    width: 100px;
+    margin: 20px 10px;
+    padding: 10px 0;
+}
+.result {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+.result.valid {
+    background-image: url(valid.png);
+    background-repeat: no-repeat;
+}
+.result.invalid {
+    background-image: url(invalid.png);
+    background-repeat: no-repeat;
+}

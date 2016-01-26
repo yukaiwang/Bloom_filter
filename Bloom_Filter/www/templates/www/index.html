@@ -2,20 +2,24 @@
 <html>
 <head>
 <title>Bloom Filter</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'www/bootstrap.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'www/style.css' %}" />
 </head>
 <body>
 
-<h1>Filtre de Bloom </h1>
+	<h1 class="text-center">Le filtre de Bloom</h1>
 
-<form name="search"  action="{% url 'search' %}" method="post">
-	{% csrf_token %}
-    <input name ="doc_type" type="text" placeholder="Type de document" value="" required >
-    <input name ="country" type="text" placeholder="Pays" value="" required >
-    <input name ="doc_id" type="text" placeholder="Doc id" value="" required >
-    <input type="submit" class="btn" value="search">
-</form>
+	<form name="search"  action="{% url 'search' %}" method="post">
+		{% csrf_token %}
+	    <input name ="doc_type" type="text" class="short-input" placeholder="Type" value="" required >
+	    <input name ="country" type="text" class="short-input" placeholder="Pays" value="" required >
+	    <input name ="doc_id" type="text" class="long-input" placeholder="Doc id" value="" required >
+	    <input type="submit" class="btn" value="Recherche">
+	</form>
 
-<h2>{{resultat}}</h2>
+
+<div class="result {{resultat}}"></div>
 
 </body>
 </html>
