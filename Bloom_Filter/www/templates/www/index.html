@@ -12,9 +12,9 @@
 
 	<form name="search"  action="{% url 'search' %}" method="post">
 		{% csrf_token %}
-	    <input name ="doc_type" type="text" class="short-input" placeholder="Type" value="" required >
-	    <input name ="country" type="text" class="short-input" placeholder="Pays" value="" required >
-	    <input name ="doc_id" type="text" class="long-input" placeholder="Doc id" value="" required >
+	    <input name ="doc_type" type="text" class="short-input" placeholder="Type" value="{{doc_type}}" required >
+	    <input name ="country" type="text" class="short-input" placeholder="Pays" value="{{country}}" required >
+	    <input name ="doc_id" type="text" class="long-input" placeholder="Doc id" value="{{doc_id}}" required >
 	    <input type="submit" class="btn" value="Recherche">
 	</form>
 

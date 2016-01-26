@@ -39,7 +39,7 @@ def index(request):
 			response = "valid"
 		else:
 			response = "invalid"
-	context = {'resultat' : response}
+	context = {'resultat' : response,'doc_type':doc_type,'country':country,'doc_id':doc_id}
 	return render(request, 'www/index.html',context)
 
 def search(request):
