@@ -50,8 +50,7 @@ def generate_database():
 		country = country_list[random.randint(0, country_list_size-1)]
 		type_doc = type_list[random.randint(0, type_list_size-1)]
 		birthday = ''.join(random.choice(string.digits) for _ in range(6))
-		identifier = '0'
-		num_document = num_passport + country + birthday + identifier
+		num_document = num_passport + country + birthday
 
 		prepared_stmt = session.prepare ( "INSERT INTO documents (type, country, number) VALUES (?, ?, ?)")
 		bound_stmt = prepared_stmt.bind([type_doc, country, num_document])

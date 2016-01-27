@@ -19,6 +19,9 @@ import string
 	
 
 def generate_test_file(nb_documents):
+	cluster = Cluster()
+	session = cluster.connect('pdc03')
+
 	# Lire les listes de pays et de type
 	country_list = read_country_list()
 	country_list_size = len(country_list)
@@ -33,21 +36,21 @@ def generate_test_file(nb_documents):
 		country = country_list[random.randint(0, country_list_size-1)]
 		type_doc = type_list[random.randint(0, type_list_size-1)]
 		birthday = ''.join(random.choice(string.digits) for _ in range(6))
-		identifier = '1'
-		num_document = num_passport + country + birthday + identifier
+		num_document = num_passport + country + birthday
 
-		type_doc = type_list[random.randint(0, type_list_size-1)]
-		documents.append([type_doc, country, num_document])
-		i += 1
-
-	cluster = Cluster()
-	session = cluster.connect('pdc03')
+		prepared_stmt = session.prepare ( "SELECT count(*) FROM documents WHERE (type = ?) AND (country = ?) AND (number = ?);")
+		bound_stmt = prepared_stmt.bind([type_doc, country, num_document])
+		results = session.execute(bound_stmt)
+		for result in results:
+			if result.count == 0:
+				documents.append([type_doc, country, num_document])
+				i += 1
 
 	prepared_stmt = session.prepare ( "SELECT * FROM documents LIMIT ?")
 	bound_stmt = prepared_stmt.bind([int(nb_documents*0.0001)])
-	stmt = session.execute(bound_stmt)
-	for row in stmt:
-		documents.append([row.type, row.country, row.number])
+	results = session.execute(bound_stmt)
+	for result in results:
+		documents.append([result.type, result.country, result.number])
 
 	print len(documents)
 	print documents[0:5]
